@@ -5,3 +5,219 @@
  * name:
  * email:
  */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Site title font */
+.site-title {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700; /* Adjust according to the mocks */
+  text-align: center;
+  margin: 20px 0;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-image-container img {
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+}
+
+.site-title a {
+  text-decoration: none;
+  color: #000;
+}
+.content {
+  display: flex;
+}
+
+.filter-container {
+  width: 250px; /* Adjust width as needed */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.filter-container h2 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.filter-input-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center; /* Vertically center the items */
+}
+
+.filter-input-label {
+  width: 80px; /* Adjust label width */
+  font-weight: 500;
+}
+
+.filter-input-element {
+  flex-grow: 1;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+/* Special case for Price filter with two inputs */
+.filter-input-container:nth-child(3) .filter-input-element {
+  width: 45%;
+}
+
+.filter-input-container:nth-child(3) .filter-input-element + .filter-input-element {
+  margin-left: 10px;
+}
+
+/* Condition filter */
+.filter-fieldset {
+  border: none;
+  padding: 0;
+}
+
+.filter-fieldset legend {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.filter-fieldset div {
+  margin-bottom: 5px;
+}
+#filter-update-button {
+  padding: 10px 20px;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+#filter-update-button:hover {
+  background-color: #aaa;
+}
+#posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust min width */
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+.post {
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-contents {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.post-image-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.post-title {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.post-title:hover {
+  text-decoration: underline;
+}
+
+.post-price {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+.post-city {
+  font-size: 0.9em;
+  color: #555;
+  margin-left: 10px;
+}
+<button type="button" id="sell-something-button" class="add-post-button">
+  <i class="fas fa-plus"></i>
+</button>
+.add-post-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff6600; /* Adjust color as per mocks */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.add-post-button:hover {
+  transform: scale(1.1); /* Grows slightly */
+}
+
+.add-post-button i {
+  font-size: 24px;
+}
+
+/* Change cursor on hover */
+.add-post-button:hover {
+  cursor: pointer;
+}
+/* Adjust spacing in filters */
+.filter-input-container {
+  align-items: center;
+}
+
+/* Adjust margins in posts */
+.post-info-container span {
+  margin-left: 5px;
+}
+.filter-container label,
+.filter-container legend {
+  font-weight: 500;
+}
+
+.post-price,
+.post-city {
+  font-weight: 300;
+}
+
