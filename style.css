@@ -252,3 +252,22 @@ header {
   transform: scale(1.05);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
+
+/* Update Button Style */
+#filter-update-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f5c6a5; /* Light peach background color */
+  color: #000; /* Text color */
+  border: 1px solid #d59b82; /* Border color to match background */
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 15px; /* Matches the rounded corners */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  margin-top: 15px; /* Adds space above the button */
+  box-shadow: none; /* Removes any shadow */
+}
+
+#filter-update-button:hover {
+  background-color: #e8b092; /* Slightly darker peach color for hover */
+}
