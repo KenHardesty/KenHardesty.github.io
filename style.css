@@ -168,22 +168,19 @@ header {
 .post-info-container {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  margin-top: auto; /* Aligns info container at the bottom of the post */
+  gap: 8px; /* Adds spacing between title, price, and city */
+  margin-top: 8px; /* Adjusts spacing from image */
+  flex-wrap: wrap; /* Allows the items to wrap if needed */
 }
 
 .post-title {
   text-decoration: none;
   color: var(--primary-color, #ff6600); /* Sets color to orange */
-  font-weight: 500; /* Normal weight */
-  flex-shrink: 1;
-  margin-right: 5px;
+  font-weight: 500;
   font-size: 1em;
-  overflow: visible; /* Allows text to wrap */
-  text-overflow: unset; /* Disables ellipsis */
-  white-space: normal; /* Allows multi-line wrapping */
-  max-width: 100%; /* Ensures it doesn't exceed container */
+  margin: 0; /* Removes any additional margin */
+  white-space: normal; /* Allows multi-line wrapping if needed */
+  display: inline-block; /* Allows inline alignment */
 }
 
 .post-title:hover {
@@ -192,21 +189,20 @@ header {
 
 .post-price {
   background-color: var(--light-gray);
-  padding: 5px 10px;
+  padding: 2px 8px;
   border-radius: var(--border-radius-pill);
   font-size: 0.9em;
   font-weight: 500;
   color: #333;
-  flex-shrink: 0;
+  display: inline-block; /* Aligns price inline with title and city */
 }
+
 
 .post-city {
   font-size: 0.85em;
   color: var(--dark-gray);
   font-weight: 400;
-  overflow: hidden; /* Prevents text from overflowing */
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: inline-block; /* Aligns city inline with title and price */
 }
 
 /* Responsive Design */
