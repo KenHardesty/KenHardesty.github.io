@@ -20,36 +20,48 @@ body {
   padding: 0;
 }
 
-/*  Header Styles  */
+/* Header Styles */
 
 header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  justify-content: flex-start;
+  padding: 20px 40px;
+  background-color: #000;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.header-image-container {
+  margin-right: 15px;
 }
 
 .header-image-container img {
-  width: 100px;
+  width: 60px;
   height: auto;
 }
 
 .site-title {
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
-  text-align: center;
-  margin: 10px 0;
+  color: #fff;
+  font-size: 2em;
 }
 
 .site-title a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
-/*  Content Layout  */
+.site-title a:hover {
+  color: var(--primary-color);
+}
+
+/* Content Layout */
 
 .content {
   display: flex;
+  padding: 20px;
 }
 
 /*  Filters Sidebar Styles  */
