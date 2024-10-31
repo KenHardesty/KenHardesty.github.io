@@ -12,6 +12,7 @@
   --light-gray: #f0f0f0;
   --dark-gray: #555;
   --border-radius-pill: 15px;
+  --transition-duration: 0.3s;
 }
 
 body {
