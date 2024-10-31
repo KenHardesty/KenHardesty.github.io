@@ -226,6 +226,29 @@ header {
     grid-template-columns: 1fr;
   }
 }
+
+
+
+
+
+#filter-update-button {
+  width: 100% !important;
+  padding: 10px !important;
+  background-color: #f5c6a5 !important;
+  color: #000 !important;
+  border: 1px solid #d59b82 !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  border-radius: 15px !important;
+  transition: background-color 0.3s ease !important;
+  margin-top: 15px !important;
+  box-shadow: none !important;
+}
+
+#filter-update-button:hover {
+  background-color: #e8b092 !important;
+}
+
 /* Fixed Orange Button */
 
 #sell-something-button {
@@ -253,20 +276,3 @@ header {
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-#filter-update-button {
-  width: 100% !important;
-  padding: 10px !important;
-  background-color: #f5c6a5 !important;
-  color: #000 !important;
-  border: 1px solid #d59b82 !important;
-  font-weight: 500 !important;
-  cursor: pointer !important;
-  border-radius: 15px !important;
-  transition: background-color 0.3s ease !important;
-  margin-top: 15px !important;
-  box-shadow: none !important;
-}
-
-#filter-update-button:hover {
-  background-color: #e8b092 !important;
-}
