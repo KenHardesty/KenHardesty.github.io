@@ -28,23 +28,23 @@ body {
 header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Align content to the left */
   background-color: #000; /* Black background */
   color: #fff; /* White text */
-  padding: 10px 20px;
+  padding: 20px 40px; /* Increased padding for more prominence */
   border-bottom: 2px solid #fff; /* Thin white line below */
 }
 
 .header-image-container img {
-  width: 40px;
+  width: 60px; /* Larger image size */
   height: auto;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .site-title {
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 2em; /* Larger font size */
   color: #fff;
   margin: 0;
 }
@@ -52,10 +52,6 @@ header {
 .site-title a {
   text-decoration: none;
   color: #fff;
-}
-
-.site-title a:hover {
-  color: var(--primary-color);
 }
 
 /* Content Layout */
