@@ -70,7 +70,7 @@ header {
 
 .filter-container {
   width: 220px;
-  padding: 15px;
+  padding: 20px; /* Increased padding for better spacing */
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -81,63 +81,51 @@ header {
 .filter-container h2 {
   font-weight: 700;
   font-size: 1.2em;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: var(--dark-gray);
 }
 
 .filter-input-container {
-  margin-bottom: 10px;
+  margin-bottom: 15px; /* Increased spacing between filter items */
   display: flex;
   align-items: center;
 }
 
 .filter-input-label {
-  width: 50px; /* Adjusted label width */
+  width: 50px;
   font-weight: 500;
   color: var(--dark-gray);
 }
 
 .filter-input {
-  width: 100%;
+  width: calc(100% - 20px); /* Adjusted width to prevent touching edges */
   padding: 5px;
+  margin-left: 10px; /* Adds space to the left */
+  margin-right: 10px; /* Adds space to the right */
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 0.9em; /* Smaller input font */
+  font-size: 0.9em;
+}
+
+.price-filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Adds space between min and max boxes */
 }
 
 .price-filter .filter-input-element {
   width: 45%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9em;
 }
 
-.price-filter .filter-input-element + .filter-input-element {
-  margin-left: 10px;
-}
-
-.filter-fieldset {
-  border: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-.filter-fieldset legend {
-  font-weight: 500;
-  color: var(--dark-gray);
-  margin-bottom: 5px; /* Reduced margin */
-}
-
-.filter-fieldset div {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px; /* Adjusted spacing for checkboxes */
-}
-
-.filter-fieldset input[type="checkbox"] {
-  margin-right: 8px;
-}
+/* Update Button Style */
 
 #filter-update-button {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   background-color: #000;
   color: #fff;
   border: none;
@@ -145,18 +133,19 @@ header {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color var(--transition-duration);
+  margin-top: 15px; /* Adds space above the button */
 }
 
 #filter-update-button:hover {
   background-color: #333;
 }
 
-/* Posts Styles */
+/* Updated Posts Styles */
 
 #posts {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px; /* Reduced gap for tighter layout */
+  gap: 15px;
   padding: 20px;
   box-sizing: border-box;
   flex-grow: 1;
@@ -171,8 +160,9 @@ header {
   flex-direction: column;
   height: 100%;
   background-color: #fff;
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures that content doesn't overflow the post container */
 }
 
 .post-contents {
@@ -186,12 +176,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px; /* Space between image and info */
+  margin-bottom: 10px;
 }
 
 .post-image-container img {
   max-width: 100%;
-  max-height: 150px; /* Control image height */
+  max-height: 150px;
   object-fit: contain;
 }
 
@@ -200,6 +190,7 @@ header {
   align-items: center;
   flex-wrap: nowrap;
   justify-content: space-between;
+  margin-top: auto; /* Aligns info container at the bottom of the post */
 }
 
 .post-title {
@@ -208,7 +199,11 @@ header {
   font-weight: 600;
   flex-shrink: 1;
   margin-right: 5px;
-  font-size: 1em; /* Adjusted font size */
+  font-size: 1em;
+  overflow: hidden; /* Hides overflowed text */
+  text-overflow: ellipsis; /* Adds "..." to indicate overflow */
+  white-space: nowrap; /* Keeps text on a single line */
+  max-width: 80%; /* Ensures title doesn't push the price out of view */
 }
 
 .post-title:hover {
@@ -229,35 +224,9 @@ header {
   font-size: 0.85em;
   color: var(--dark-gray);
   font-weight: 400;
-}
-
-/* Add-Post Button Styles */
-
-.add-post-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.add-post-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.add-post-button i {
-  font-size: 24px;
+  overflow: hidden; /* Prevents text from overflowing */
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Responsive Design */
