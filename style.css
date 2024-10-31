@@ -19,6 +19,7 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #fafafa; /* Light background */
 }
 
 /* Header Styles */
@@ -27,7 +28,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 20px 40px;
+  padding: 10px 40px;
   background-color: #000;
   color: #fff;
   border-bottom: 2px solid #fff;
@@ -38,7 +39,7 @@ header {
 }
 
 .header-image-container img {
-  width: 60px;
+  width: 50px; /* Smaller logo size */
   height: auto;
 }
 
@@ -46,7 +47,7 @@ header {
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
   color: #fff;
-  font-size: 2em;
+  font-size: 1.8em; /* Adjusted font size for better alignment */
 }
 
 .site-title a {
@@ -68,7 +69,7 @@ header {
 /* Filters Sidebar Styles */
 
 .filter-container {
-  width: 250px;
+  width: 220px;
   padding: 15px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -80,7 +81,7 @@ header {
 .filter-container h2 {
   font-weight: 700;
   font-size: 1.2em;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--dark-gray);
 }
 
@@ -91,7 +92,7 @@ header {
 }
 
 .filter-input-label {
-  width: 60px;
+  width: 50px; /* Adjusted label width */
   font-weight: 500;
   color: var(--dark-gray);
 }
@@ -101,6 +102,7 @@ header {
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  font-size: 0.9em; /* Smaller input font */
 }
 
 .price-filter .filter-input-element {
@@ -120,13 +122,13 @@ header {
 .filter-fieldset legend {
   font-weight: 500;
   color: var(--dark-gray);
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* Reduced margin */
 }
 
 .filter-fieldset div {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 8px; /* Adjusted spacing for checkboxes */
 }
 
 .filter-fieldset input[type="checkbox"] {
@@ -135,7 +137,7 @@ header {
 
 #filter-update-button {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   background-color: #000;
   color: #fff;
   border: none;
@@ -149,25 +151,28 @@ header {
   background-color: #333;
 }
 
-/*  Posts Styles  */
+/* Posts Styles */
 
 #posts {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px; /* Equal space between posts */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px; /* Reduced gap for tighter layout */
   padding: 20px;
   box-sizing: border-box;
   flex-grow: 1;
-  align-items: stretch; /* Ensure posts in the same row have the same height */
+  align-items: stretch;
 }
 
 .post {
-  border: 1px solid #ddd; /* Subtle border around each post */
-  padding: 10px;
+  border: 1px solid #ddd;
+  padding: 15px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Make posts fill the grid cell */
+  height: 100%;
+  background-color: #fff;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
 .post-contents {
@@ -180,66 +185,66 @@ header {
   flex-grow: 1;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the image within the post */
+  justify-content: center;
+  margin-bottom: 10px; /* Space between image and info */
 }
 
 .post-image-container img {
   max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* Ensure the image scales properly */
+  max-height: 150px; /* Control image height */
+  object-fit: contain;
 }
 
 .post-info-container {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap; /* Keep elements on one line if possible */
-  justify-content: space-between; /* Space between elements */
-  margin-top: 10px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .post-title {
   text-decoration: none;
   color: #000;
-  font-weight: 500;
+  font-weight: 600;
   flex-shrink: 1;
-  margin-right: 10px;
+  margin-right: 5px;
+  font-size: 1em; /* Adjusted font size */
 }
 
 .post-title:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }
 
 .post-price {
   background-color: var(--light-gray);
   padding: 5px 10px;
-  border-radius: var(--border-radius-pill); /* Slightly rounded border */
-  font-size: 0.9em; /* Slightly smaller text */
-  font-weight: 300;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #333;
   flex-shrink: 0;
-  margin-right: 10px;
 }
 
 .post-city {
-  font-size: 0.9em;
+  font-size: 0.85em;
   color: var(--dark-gray);
-  font-weight: 300;
-  flex-shrink: 0;
+  font-weight: 400;
 }
 
 /* Add-Post Button Styles */
 
 .add-post-button {
-  position: fixed; /* Position doesn't change on scroll */
+  position: fixed;
   bottom: 20px;
   right: 20px;
   background-color: var(--primary-color);
   color: #fff;
   border: none;
-  border-radius: 50%; /* Perfect circle */
+  border-radius: 50%;
   width: 60px;
   height: 60px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -247,19 +252,15 @@ header {
 }
 
 .add-post-button:hover {
-  transform: scale(1.05); /* Grows slightly on hover */
+  transform: scale(1.05);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.add-post-button:hover {
-  cursor: pointer; /* Pointer cursor on hover */
 }
 
 .add-post-button i {
   font-size: 24px;
 }
 
-/* ==================== Responsive Design ==================== */
+/* Responsive Design */
 
 @media (max-width: 600px) {
   .content {
