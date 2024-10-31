@@ -70,11 +70,12 @@ header {
 
 .filter-container {
   width: 220px;
-  padding: 20px; /* Increased padding for better spacing */
-  background-color: #fff;
+  padding: 20px;
+  background-color: var(--light-gray); /* Light gray background for filters */
   border: 1px solid #ddd;
   border-radius: 8px;
   margin-right: 20px;
+  box-sizing: border-box;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -86,8 +87,9 @@ header {
 }
 
 .filter-input-container {
-  margin-bottom: 15px; /* Increased spacing between filter items */
+  margin-bottom: 15px;
   display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to prevent overlap */
   align-items: center;
 }
 
@@ -97,28 +99,63 @@ header {
   color: var(--dark-gray);
 }
 
+.filter-input-element {
+  flex: 1;
+  min-width: 0; /* Allow flex items to shrink properly */
+}
+
 .filter-input {
-  width: calc(100% - 20px); /* Adjusted width to prevent touching edges */
+  width: 100%;
   padding: 5px;
-  margin-left: 10px; /* Adds space to the left */
-  margin-right: 10px; /* Adds space to the right */
+  margin-left: 10px;
+  margin-right: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 0.9em;
 }
+
+/* Price Filter Styles */
 
 .price-filter {
   display: flex;
-  justify-content: space-between;
-  gap: 10px; /* Adds space between min and max boxes */
+  flex-wrap: wrap; /* Allow inputs to wrap to prevent overlap */
+  gap: 10px;
 }
 
 .price-filter .filter-input-element {
-  width: 45%;
-  padding: 5px;
-  border: 1px solid #ddd;
+  flex: 1 1 calc(50% - 10px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.price-filter .filter-input {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Condition Fieldset Styles */
+
+.filter-fieldset {
+  border: 1px solid #ddd; /* Square outline around the conditions section */
+  padding: 10px;
   border-radius: 5px;
-  font-size: 0.9em;
+  background-color: #fff; /* Contrast with light gray background */
+}
+
+.filter-fieldset legend {
+  font-weight: 500;
+  color: var(--dark-gray);
+  margin-bottom: 10px;
+}
+
+.filter-fieldset div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.filter-fieldset input[type="checkbox"] {
+  margin-right: 8px;
 }
 
 /* Update Button Style */
@@ -133,7 +170,7 @@ header {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color var(--transition-duration);
-  margin-top: 15px; /* Adds space above the button */
+  margin-top: 15px;
 }
 
 #filter-update-button:hover {
@@ -162,7 +199,7 @@ header {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Ensures that content doesn't overflow the post container */
+  overflow: hidden; /* Prevent content from spilling out */
 }
 
 .post-contents {
@@ -188,22 +225,21 @@ header {
 .post-info-container {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  margin-top: auto; /* Aligns info container at the bottom of the post */
+  flex-wrap: wrap; /* Allow items to wrap if necessary */
+  justify-content: flex-start;
+  margin-top: auto;
 }
 
 .post-title {
   text-decoration: none;
   color: #000;
   font-weight: 600;
-  flex-shrink: 1;
-  margin-right: 5px;
+  flex: 1 1 0; /* Allow the title to grow and shrink */
+  margin-right: 10px;
   font-size: 1em;
-  overflow: hidden; /* Hides overflowed text */
-  text-overflow: ellipsis; /* Adds "..." to indicate overflow */
-  white-space: nowrap; /* Keeps text on a single line */
-  max-width: 80%; /* Ensures title doesn't push the price out of view */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .post-title:hover {
@@ -218,13 +254,16 @@ header {
   font-weight: 500;
   color: #333;
   flex-shrink: 0;
+  margin-left: 0;
+  margin-right: 10px;
 }
 
 .post-city {
   font-size: 0.85em;
   color: var(--dark-gray);
   font-weight: 400;
-  overflow: hidden; /* Prevents text from overflowing */
+  flex-shrink: 0;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
