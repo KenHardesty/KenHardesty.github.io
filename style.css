@@ -92,8 +92,8 @@ header {
 }
 
 .filter-input-label {
-  font-weight: 400; /* Non-bold font */
-  color: var(--primary-color, #ff6600); /* Orange text color */
+  font-weight: 500; /* Reverted to original weight */
+  color: var(--dark-gray); /* Reverted to dark gray */
 }
 
 .filter-input {
@@ -175,7 +175,7 @@ header {
 
 .post-title {
   text-decoration: none;
-  color: #000;
+  color: var(--primary-color, #ff6600); /* Sets color to orange */
   font-weight: 500; /* Normal weight */
   flex-shrink: 1;
   margin-right: 5px;
