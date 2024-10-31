@@ -233,23 +233,24 @@ header {
 /* Add-Post Button Styles */
 
 .add-post-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  position: fixed; /* Fixes the button relative to the viewport */
+  bottom: 20px;    /* 20px from the bottom */
+  right: 20px;     /* 20px from the right */
   background-color: var(--primary-color); /* Orange background */
-  color: #fff; /* White plus sign */
+  color: #fff;     /* White plus sign */
   border: none;
   border-radius: 50%; /* Circular shape */
   width: 60px;
   height: 60px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex; /* Center content */
+  display: flex; /* Centers the plus sign */
   align-items: center;
   justify-content: center;
-  transition: transform var(--transition-duration), box-shadow var(--transition-duration);
-  font-size: 36px; /* Larger plus sign */
+  font-size: 36px; /* Makes the plus sign larger */
   line-height: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+  z-index: 1000; /* Ensures the button stays on top of other elements */
 }
 
 .add-post-button:hover {
@@ -258,7 +259,7 @@ header {
 }
 
 .add-post-button i {
-  font-size: 36px; /* Adjust if using Font Awesome */
+  font-size: 36px; /* Adjusts icon size if using Font Awesome */
 }
 
 /* Responsive Design */
