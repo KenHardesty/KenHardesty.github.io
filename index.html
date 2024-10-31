@@ -4,36 +4,30 @@
     <meta charset="utf-8">
     <title>Benny's List</title>
 
-    <!--
-      This 3rd-party stylesheet makes available the font families to be used
-      for this page ("Roboto" and "Roboto Slab").
-    -->
+    <!-- Google Fonts for "Roboto" and "Roboto Slab" -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
-    <!--
-      This 3rd-party stylesheet incorporates SVG icons from Font Awesome:
-      http://fontawesome.com/.  Specifically, each of the <i> elements below
-      incorporates an icon from Font Awesome.
-    -->
+    <!-- Font Awesome Icons for Plus Sign -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
 
+    <!-- Link to Custom CSS -->
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
+    <!-- Header Section -->
     <header>
-
       <div class="header-image-container">
         <img src="benny.jpg" alt="Benny logo">
       </div>
-
       <h1 class="site-title"><a href="#">Benny's List</a></h1>
-
     </header>
 
+    <!-- Main Content Section -->
     <main class="content">
-      <aside class="filter-container">
 
+      <!-- Filters Sidebar -->
+      <aside class="filter-container">
         <h2>Filters</h2>
 
         <div class="filter-input-container">
@@ -43,7 +37,7 @@
           </div>
         </div>
 
-        <div class="filter-input-container">
+        <div class="filter-input-container price-filter">
           <label for="filter-min-price" class="filter-input-label">Price</label>
           <div class="filter-input-element">
             <input type="text" name="filter-min-price" id="filter-min-price" class="filter-input" placeholder="min">
@@ -94,10 +88,11 @@
           </fieldset>
         </div>
 
+        <!-- Update Button -->
         <button id="filter-update-button" class="action-button">Update</button>
-        <button class="fixed-circle-button">+</button>
       </aside>
 
+      <!-- Posts Section -->
       <section id="posts">
 
         <div class="post">
@@ -122,76 +117,13 @@
           </div>
         </div>
 
-        <div class="post">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="https://m.katu.com/resources/media2/16x9/full/1015/center/80/2eba97b8-6b36-4a8b-963c-417e756e430c-voodoodoughnutrecord660.jpg" alt="Very large pile of interesting donuts">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Very large pile of interesting donuts</a> <span class="post-price">$100</span> <span class="post-city">(Portland)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="http://static.legalsolutions.thomsonreuters.com/product_photos/p40307624-141728L.jpg" alt="Oregon laws">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Oregon laws</a> <span class="post-price">$250</span> <span class="post-city">(Salem)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="http://i.huffpost.com/gen/1573833/images/o-SUNSHINE-facebook.jpg" alt="Sunshine">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Sunshine</a> <span class="post-price">$1</span> <span class="post-city">(Bend)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="http://www.portlandhipster.com/wp-content/uploads/2015/09/hipsters.jpg" alt="Hipsters">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Hipsters</a> <span class="post-price">$99</span> <span class="post-city">(Portland)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/102707-Oregon-AutzenStadium-ext.jpg/1200px-102707-Oregon-AutzenStadium-ext.jpg" alt="Football stadium (we kind of want to build a new one)">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Football stadium (we kind of want to build a new one)</a> <span class="post-price">$20000000</span> <span class="post-city">(Eugene)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="https://farm2.staticflickr.com/1258/1366422925_25663f44c8_z.jpg" alt="Very nice farmer's market">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Very nice farmer's market</a> <span class="post-price">$10000</span> <span class="post-city">(Corvallis)</span>
-            </div>
-          </div>
-        </div>
+        <!-- Additional Posts (example posts) -->
+        <!-- Add more post items as needed -->
 
       </section>
-
     </main>
 
+    <!-- Fixed Sell Button -->
     <button type="button" id="sell-something-button"><i class="fas fa-plus"></i></button>
 
   </body>
