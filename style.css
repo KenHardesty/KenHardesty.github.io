@@ -158,11 +158,12 @@ header {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   flex-grow: 1;
+  align-items: stretch; /* Ensure all posts have the same height */
 }
 
 .post {
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd; /* Subtle border */
   padding: 15px;
   border-radius: 10px;
   box-sizing: border-box;
@@ -185,21 +186,23 @@ header {
   flex-grow: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Center the image */
   margin-bottom: 10px;
 }
 
 .post-image-container img {
   max-width: 100%;
+  max-height: 200px; /* Ensure consistent image height */
   border-radius: 8px;
-  height: auto;
+  object-fit: cover; /* Crop images to fill the container */
 }
 
 .post-info-container {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  margin-top: 8px;
+  justify-content: space-between; /* Distribute space */
+  flex-wrap: nowrap; /* Keep items on one line */
+  margin-top: auto; /* Push to the bottom */
 }
 
 .post-title {
@@ -210,26 +213,31 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
   transition: color var(--transition-duration);
+  margin-right: 10px; /* Space between title and price */
 }
 
 .post-title:hover {
   color: var(--primary-color);
+  text-decoration: underline; /* Underline on hover */
 }
 
 .post-price {
   background-color: var(--light-gray);
   padding: 5px 10px;
-  border-radius: var(--border-radius-pill);
-  font-size: 0.9em;
+  border-radius: var(--border-radius-pill); /* Rounded corners */
+  font-size: 0.9em; /* Slightly smaller text */
   font-weight: 300;
   color: var(--dark-gray);
+  margin-right: 10px; /* Space between price and city */
 }
 
 .post-city {
   font-size: 0.9em;
   color: var(--dark-gray);
   font-weight: 300;
-  margin-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Add-Post Button Styles */
@@ -238,27 +246,28 @@ header {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
   width: 60px;
   height: 60px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: var(--primary-color); /* Orange background */
+  color: #fff; /* White plus sign */
+  border: none;
+  border-radius: 50%; /* Perfect circle */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer; /* Pointing hand cursor */
   transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+  z-index: 1000; /* Ensures button stays above other elements */
 }
 
 .add-post-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  transform: scale(1.1); /* Grow slightly on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
 }
 
 .add-post-button i {
-  font-size: 24px;
+  font-size: 24px; /* Adjust icon size if using Font Awesome */
 }
 
 /* Responsive Design */
@@ -276,5 +285,9 @@ header {
 
   #posts {
     grid-template-columns: 1fr;
+  }
+
+  .post-info-container {
+    flex-wrap: wrap; /* Allow items to wrap on small screens */
   }
 }
