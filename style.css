@@ -92,9 +92,8 @@ header {
 }
 
 .filter-input-label {
-  width: 50px;
-  font-weight: 500;
-  color: var(--dark-gray);
+  font-weight: 400; /* Non-bold font */
+  color: var(--primary-color, #ff6600); /* Orange text color */
 }
 
 .filter-input {
@@ -177,14 +176,14 @@ header {
 .post-title {
   text-decoration: none;
   color: #000;
-  font-weight: 600;
+  font-weight: 500; /* Normal weight */
   flex-shrink: 1;
   margin-right: 5px;
   font-size: 1em;
-  overflow: hidden; /* Hides overflowed text */
-  text-overflow: ellipsis; /* Adds "..." to indicate overflow */
-  white-space: nowrap; /* Keeps text on a single line */
-  max-width: 80%; /* Ensures title doesn't push the price out of view */
+  overflow: visible; /* Allows text to wrap */
+  text-overflow: unset; /* Disables ellipsis */
+  white-space: normal; /* Allows multi-line wrapping */
+  max-width: 100%; /* Ensures it doesn't exceed container */
 }
 
 .post-title:hover {
