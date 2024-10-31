@@ -231,22 +231,23 @@ header {
 
 
 
+/* Update Button Style */
+
 #filter-update-button {
-  width: 100% !important;
-  padding: 10px !important;
-  background-color: #f5c6a5 !important;
-  color: #000 !important;
-  border: 1px solid #d59b82 !important;
-  font-weight: 500 !important;
-  cursor: pointer !important;
-  border-radius: 15px !important;
-  transition: background-color 0.3s ease !important;
-  margin-top: 15px !important;
-  box-shadow: none !important;
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color var(--transition-duration);
+  margin-top: 15px; /* Adds space above the button */
 }
 
 #filter-update-button:hover {
-  background-color: #e8b092 !important;
+  background-color: #333;
 }
 
 /* Fixed Orange Button */
