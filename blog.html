@@ -17,5 +17,57 @@
     <p>The most useful resources for me during this project were the internet and my friends. I relied heavily on the internet and youtube to teach me the basics of html coding which provided answers into fixing the image issue and ensuring my site was correctly set up. In addition to online resources my friends helped by giving me tips and helping me test the site after each change I made.</p>
     
     <p>Overall, while this assignment presented some hurdles, it was a good experiance. I now feel much more prepared for future web development tasks and troubleshooting issues that arise along the way.</p>
+
+
+    <h1>Code Blog: Reflecting on My Assignment 2</h1>
+    
+    <p>For this project, I was tasked with building a webpage that was like a shop listing layout, featuring posts, filters, and a fixed "Add" button. Initially, it seemed straightforward, but several things made it very difficult, especially with CSS styling and layout adjustments.</p>
+
+    <h2>Challenges and Solutions</h2>
+    <p>One of the toughest parts was getting the layout of the posts right. I wanted each post title, price, and location to line up horizontally, similar to a professional listing site, but I kept running into issues where the text would overflow or get cut off with ellipses. Solving this required a deeper understanding of CSS properties like <code>white-space</code>, <code>text-overflow</code>, and <code>flexbox</code> adjustments. After experimenting and researching online, I was able to allow text wrapping in a way that made the layout look clean without cutting off important information.</p>
+
+    <p>Another tricky part was styling the "Update" button and the fixed "Add" button in a way that looked distinct but cohesive. At first, changes to the button styling affected both buttons because of shared properties, making it difficult to get the right look for each. The solution was to isolate each button style using unique IDs and applying <code>!important</code> in places where styles were being overridden. This allowed me to maintain specific styles for each button without unwanted cross-over effects.</p>
+
+    <h2>What I Learned</h2>
+    <p>This assignment taught me a lot about how specific CSS properties work together. One insight I gained was the importance of <code>display: inline-block;</code> for achieving horizontal alignment without forcing elements onto one line. I also realized how valuable the <code>flex</code> property is for aligning items both horizontally and vertically, and how using properties like <code>gap</code> in a <code>flexbox</code> layout can make a big difference in spacing.</p>
+
+    <p>Some things, like adding images and creating basic HTML structure, were things I already knew from previous assignments. However, this project pushed me to apply that knowledge to a more complex design.</p>
+
+    <h2>Resources</h2>
+    <p>I relied heavily on MDN Web Docs for CSS properties, especially to understand <code>flexbox</code> and <code>grid</code> better. Stack Overflow also came in handy when I encountered specific problems with button styling and overflow issues. Additionally, YouTube tutorials on CSS styling and Flexbox basics gave me visual examples that were helpful for tackling layout issues.</p>
+
+    <h2>Things I Googled</h2>
+    <p>One of the first things I Googled was "CSS prevent text overflow ellipsis" because the ellipses were cutting off important parts of the post titles. I also searched for "CSS fixed button position" to understand how to make the "Add" button stay at the bottom right, no matter the screen size.</p>
+
+
+
+    
+
+
+    <h1>Code Blog: My Experience Assingment 3</h1>
+
+    <p>So, for this assignment, I had to add some new features to the "Benny's List" webpage. The main idea was to let users create new posts through a modal dialog (you know, those pop-up forms) and to add filtering options so people could find posts based on things like text, price, city, and condition. It seemed pretty straightforward at first, but I hit some bumps along the way that really tested my problem-solving skills.</p>
+
+    <h2>Challenges and Solutions</h2>
+
+    <p><strong>Getting the Modal Dialog to Work:</strong> One of the first issues I faced was making the modal dialog appear and function correctly when the "Sell Something" button was clicked. At first, nothing happened when I clicked it. I realized I needed to manipulate the DOM to remove the "hidden" class from the modal and backdrop elements. By adding some JavaScript event listeners and toggling classes, I finally got the modal to show up as it should.</p>
+
+    <p><strong>Clearing the Input Fields:</strong> Another challenge was making sure all the input fields in the modal were cleared out when the modal was closed, whether by clicking the close button, the cancel button, or after creating a post. I wrote a function to reset all the fields and called it whenever the modal was closed. This way, old data didn't stick around when the modal was reopened.</p>
+
+    <p><strong>Handling User Input Safely:</strong> I was concerned about security, specifically preventing cross-site scripting (XSS) attacks when adding user input to the DOM. To keep things safe, I avoided using <code>innerHTML</code> to insert user-provided content. Instead, I created new DOM elements with <code>createElement</code> and set their <code>textContent</code> or <code>setAttribute</code> properties. This ensures any HTML or script tags entered by users are treated as plain text and not executed.</p>
+
+    <p><strong>Implementing Filters:</strong> Adding the filtering functionality was tougher than I thought. Initially, I tried to show or hide posts directly in the DOM based on the filter criteria. But this got messy, especially when new posts were added. To fix this, I decided to store all the post data in an array of objects. When filters are applied, I filter this array and re-render the posts section. This made the logic cleaner and the filtering more reliable.</p>
+
+    <p><strong>Optimizing Re-rendering:</strong> One concern with re-rendering was that it might not be efficient. To keep things running smoothly, I made sure the DOM updates were minimal. I cleared the posts container and only added back the posts that matched the current filters. This helped prevent unnecessary work for the browser.</p>
+
+    <h2>What I Learned</h2>
+
+    <p>This project taught me a lot about manipulating the DOM and handling events in JavaScript. I learned how to safely create and insert DOM elements, which is super important for security. I also realized the value of separating data from the UI. By keeping an array of post data, I could manage the app's state better and make the UI reflect that state without messy DOM manipulations.</p>
+
+    <p>Plus, I got more comfortable with JavaScript functions and scope. I had to watch out for variable declarations and make sure my functions were accessible where needed. Organizing my code into smaller, reusable functions made debugging a lot easier.</p>
+
+
+
+
 </body>
 </html>
