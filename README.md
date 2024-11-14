@@ -1,132 +1,138 @@
-# Assignment 3
+# Assignment 1
+**→ Preferred deadline: 11:59pm on Monday, 10/14/2024** <br/>
+**→ Extension deadline: 11:59pm on Wednesday, 10/16/2024 (no submissions allowed after this)** <br/>
+**→ Assignment and Code Blog entry due at the same time** <br/>
+**→ Grading demo due: 11:59pm on Monday 10/28/2024**
 
-**→ Preferred deadline: 11:59pm on Tuesday, 11/12/2024** <br/>
-**→ Extension deadline: 11:59pm on Thursday, 11/14/2024 (no submissions allowed after this)** <br/>
-**→ Assignment and Code Blog entry due at the same time.  Submit Code Blog on Canvas.** <br/>
-**→ Grading demo due: 11:59pm on Monday 11/25/2024**
+This assignment is intended to get you up and running with some of the tools we'll be using in this course and also to get you to start using HTML to create web pages.  It should be very straightforward.  It has three parts, described below.
 
-The goal of this assignment is to start using JavaScript on the client-side to add interactions to a web page, including reacting to user-generated events and manipulating the DOM.  We will build off of our work from Assignment 2.
+## 1. View a post on Ed Discussion
 
-Here, you are provided with an `index.html` file and a `style.css` file that, combined, give you the "Benny's List" page we worked on in Assignment 2 (plus a little extra that we'll use in this assignment).  You're also given an empty `index.js` file.  Your job is to fill out `index.js` to add interactions to the page, as described below.
+This first part of this assignment is simple and doesn't involve coding.  Just visit our course forum on Ed Discussion and familiarize yourself with that platform.  You don't even have to post anything, but make sure to view at least one post, so Ed registers you as being active there.
 
-## 1. Support inserting new posts
+You can find a link to our Ed forum both on the course website and in Canvas within the course navigation bar for our course.  Most of you should already be automatically enrolled in our course on Ed with your @oregonstate.edu email address.  However, if you have trouble connecting to our course forum there, please catch up with me after lecture or drop into my office hours, and I’ll make sure you’re able to log in.
 
-First, you'll add functionality to the Benny's List page to allow the user to create new posts on the client.  This should work as follows:
+We'll be using Ed as our main communication platform for the course.  Ed is essentially a StackOverflow-style Q&A forum, where you can ask questions and answer your classmates’ questions.  Please use Ed exclusively for questions you have about the course, so all our course Q&A can live in one central, easily accessible place.  I (Hess) and the TAs will be on Ed, just like you and your fellow students, so you can feel confident about getting the answers you need there.
 
-1. Clicking the orange "sell something" button should display a modal that allows the user to enter information to create a new post on Benny's List.  The modal (along with a backdrop that goes behind it to shade the underlying page while the modal is displayed) are both already included in the HTML code, [starting at line 199 of `index.html`](index.html#L199-L264), but they are hidden.  Clicking the orange "sell something" button should un-hide them.  You'll have to examine the HTML to figure out the relevant IDs/classes to use to accomplish this.
+I strongly encourage you to also spend time answering your fellow classmates’ questions on Ed. This will not only enable everyone to get help quickly, but it will also help you improve your understanding of the material, since teaching someone else is the best way to learn something.  **As an extra incentive to answer questions on Ed, extra credit will be awarded to the most active Ed participants at the end of the course** (based on analytics tracked by Ed).
 
-2. When the modal is open, clicking the modal close button (the small "X" in the upper-right corner) or the modal cancel button (the one in the modal footer that says "Cancel") should close the modal by re-hiding it along with the modal backdrop.  When the modal is closed, the values of all of the input fields within the modal should be cleared so they don't appear the next time the it's opened.
+## 2. Use Git and GitHub and start practicing HTML
 
-3. When the modal is open, clicking the modal accept button (the one in the modal footer that says "Create Post") should close the modal (clearing any user-input values in the process) and generate a new post that is placed inside the posts container *after* all of the other existing posts.  The new post should match the structure of the existing posts so it is styled correctly and can be filtered.  Here is what the structure of the new post should look like:
+The other tool we'll be using quite a bit for this course is Git/GitHub.  You're already here looking at this assignment, so we know you've got at least some Git/GitHub skills.  Practice a little more and also start using HTML by following these steps:
 
-    ```html
-    <div class="post" data-price="{{price}}" data-city="{{city}}" data-condition="{{condition}}">
-      <div class="post-contents">
-        <div class="post-image-container">
-          <img src="{{photoURL}}" alt="{{itemDescription}}">
-        </div>
-        <div class="post-info-container">
-          <a href="#" class="post-title">{{itemDescription}}</a> <span class="post-price">${{price}}</span> <span class="post-city">({{city}})</span>
-        </div>
-      </div>
-    </div>
-    ```
+1. If you're new to Git and GitHub, take a few minutes to play with Git-it, which is a desktop app that teaches you how to use Git and GitHub:
 
-    Here, the info in curly brackets (`{{}}`) should be obtained from the corresponding input fields from the modal.
+    https://github.com/jlord/git-it-electron#git-it-desktop-app
 
-    **Importantly, as we discussed in class, you should not use `innerHTML` to generate DOM content directly from user-input content, since this opens up a vulnerability to cross-site scripting attacks.  You must ensure that user-input content is safely added into the DOM.**
+    We'll be using Git and GitHub heavily in this course, so it'll pay off to put in the time now to learn how to use them.
 
-    When the new post is created and the modal is closed, the values of all of the input fields should be cleared so they don't appear the next time the modal is opened.
+2. Clone this assignment repository from GitHub onto your development machine. Within the cloned assignment directory on your development machine, create a new file `index.html` that contains a complete HTML-only page (no CSS or JS required yet, but feel free to use them if you want) that displays these things:
+    * Your name and what you prefer to be called (if it's different from your name).
+    * Your OSU email address (e.g. `hessro@oregonstate.edu`).
+    * Your major and year of study.
+    * The answer to this question: what is the most complex or interesting thing you've done with your current web development skills?  If you've never done anything related to web development, that's fine, but make sure to say that here.
+    * The answer to this question: what do you hope to learn from this class?
+    * The answer to this question: have you signed up for our course Campuswire forum?
+    * A description of the most interesting fact about you or the most unique experience you've had.  There's no need to wrack your brain about this: include only what you can think of and write down in two minutes, maximum.
+    * A photo with a clear picture of your face (using an `<img>` tag).
 
-4. If the user clicks the modal accept button while any of the input fields is blank, the user should be alerted (using the [`alert()` function](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)), and the modal should be kept open until the user either closes/cancels it or provides values for all input fields.  A new post should not be created if the user hasn't specified values for all fields.
+    This info should be well-structured, e.g. using headings (`<h1>`, `<h2>`, `<h3>`, etc.), paragraphs (`<p>`), an unordered list (`<ul>` and `<li>`), a combination of those things, or anything else that makes sense.
 
-## 2. Support filtering posts
+3. Use Git commands to add and commit your new file to the local assignment repository on your development machine and to push the changes in your local repository back to your remote assignment repository on GitHub.
 
-Next, you'll add functionality to the Benny's List page that allows the user to enter values into one or more of the filter inputs in the page's sidebar and to apply those filter values to show only a subset of the posts on the page.  Specifically, when the user clicks the "Update" button that accompanies the filters in the sidebar, it should result in the posts being filtered so that only ones that meet the specified filtering criteria (i.e. the filter values entered by the user) are displayed, while posts that don't meet the filtering criteria are removed from the DOM (not just hidden).
+4. Add to your assignment directory a new file `blog.html` that contains an HTML-only page (again, feel free to add CSS and/or JS if you want, but that's not required) that will contain your code blog for the whole term.  In this file, you should start your code blog with a single entry reflecting on your experience completing this assignment.  Here are some example questions you might answer, but feel free to reflect in any way you wish, beyond these questions:
+    * What challenges or troubles did you have completing this assignment.  How did you work through them?
+    * What did you learn from this assignment?  What did you already know?
+    * What resources (e.g. specific web articles, the class Campuswire forum, the TAs) were most helpful in completing this assignment?  How did you use these resources?
 
-The filters should have the following behaviors:
+    Again, your blog page should be nicely structured, with a title at the top and a title and date for your first post.  You should also include a link at the top of your blog page that goes back to `index.html`.
 
-  * If the user enters text in the "text" filter, only posts that contain that text as a substring (case-insensitive) should be displayed.
+5. Use Git commands to add and commit your new file to the local assignment repository on your development machine and to push the changes in your local repository back to your remote assignment repository on GitHub.
 
-  * If the user enters a price in the minimum price filter, only posts whose price is greater than or equal to the specified price should be displayed.
+6. Commit and push an update to your `index.html` file adding a link near the top of the page to navigate to your code blog in `blog.html`.  Similarly, add a link near the top of `blog.html` to navigate to your home page in `index.html`.
 
-  * If the user enters a price in the maximum price filter, only posts whose price is less than or equal to the specified price should be displayed.  The user should be able to enter both a minimum price and a maximum price to display only posts that fall within the specified price range.
+## 3. Publish your newly-created pages
 
-  * If the user selects a city in the filters, only posts with a matching city (case-insensitive) should be displayed.
+The last thing you'll do for this assignment is publish your newly created pages on the web.  You have two options for how to do this:
 
-  * If the user selects any of the "condition" options in the filters, only posts that match the selected conditions should be displayed.
+  1. Publish your index and blog pages under your personal ENGR web space under a URL like this: http://web.engr.oregonstate.edu/~YOUR_ONID_ID/cs290/.  For help publishing to your web space, see [this page](http://it.engineering.oregonstate.edu/where-do-i-put-my-personal-webpages) (more tips are included below).  Note that because you're taking a course in the College of Engineering (i.e. this course), you should have access to a personal ENGR web space even if you're not an Engineering student.  You can use the following site to create an ENGR account and get access to ENGR resources like a personal web space (use the "create a new account" link):
 
-  * The user should be able to specify any combination of multiple filters (e.g. text, maximum price, and city).  If they do, only posts that match *all* of the specified filters should be displayed.
+      https://teach.engr.oregonstate.edu
 
-  * The filters should be applied to *all* posts, including both the original eight posts as well as any new posts created by the user using the functionality described above.
+  2. Publish your pages using GitHub Pages: https://pages.github.com/.  Note that because you won't have administrative permission on the assignment repo created for you by GitHub Classroom, you won't have the ability to directly publish that repo under GitHub Pages.  I (Hess) will announce in class how you can have that repo published.  Alternatively, you can create a repo under your personal GitHub account (in addition to the one created for you by GitHub Classroom!) to use for publishing to GitHub Pages.
 
-  * The user should be able to "re-filter" the posts.  In other words, if the user changes the filter values and hits the filter "Update" button, the filters should be re-applied to all of the posts, including all of the original ones and all newly-added ones.  This means that posts that were removed from the DOM because of the previous filter values might need to be re-added back into the DOM.  If the user clears all of the filter values and clicks the "Update" button, all of the original posts and any newly-added ones should be displayed again.  In all cases, the posts should always remain in the same order relative to each other.
+However you publish your pages, make sure to visit them on the internet (i.e. using a URL that starts with `https://` or `http://` and NOT one that starts with `file://`), and make sure they look the way you expect them to look.
 
-### `data` attributes
+## Tips on publishing to ENGR web space
 
-Note that to make it easier for you to filter on price, city, and condition, each post in the HTML includes some `data` attributes, e.g.:
-```
-<div class="post" data-price="20" data-city="Corvallis" data-condition="excellent">...</div>
-```
-This is a common practice for storing extra data associated with particular elements in a web page.  It will make things easier for you if you use the values of these data attributes for filtering posts instead of trying to parse those values out from other locations in the HTML.  [This MDN page](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) describes how `data` attributes work and how you can easily access their values from the client-side JS.
+Here are a few helpful hints on getting your pages published to your ENGR web spaces:
 
-## Extra credit: adding new cities
+  * The main way to publish content on the ENGR web space web space is to put files in the `public_html/` directory that lives in your home directory on the ENGR servers.  You can do this in any number of ways:
+      * [Using Windows file sharing](https://it.engineering.oregonstate.edu/accessing-engineering-file-space-using-windows-file-sharing).  Once you can access your `public_html/` directory this way, all you need to do is put your HTML files inside.
+      * Using one of the methods [described here](https://it.engineering.oregonstate.edu/accessing-engineering-file-space).
+      * Using SSH/SFTP, e.g. using [MobaXterm](https://mobaxterm.mobatek.net/documentation.html#2_3_3) or [FileZilla](https://filezilla-project.org/).
 
-Right now, the user is free to enter any city name when creating a post, but there is a fixed set of city names in the "city" filter's dropdown menu.  For extra credit, update the page's behavior so that if the user enters a city in a new post that doesn't already exist in the "city" filter's dropdown menu, that city is added dynamically to the dropdown menu.  After a city is added to the filter dropdown, the user should be able to select it and have the filter behave as described above to display only posts from the new city.  Each new city should be added to the dropdown only once.  In other words, there shouldn't be duplicate cities in the dropdown.
+  * Make sure to publish *all* of the files needed by your pages, including HTML files, image files, etc.
 
-## Code blog
+  * Once you have the files you want to publish put inside `public_html/`, the web URLs of those files match the directory structure underneath `public_html/`.  For example, say the contents of your `public_html/` directory on the ENGR servers look like this:
 
-Add an entry to your Code Blog reflecting on your experience with this assignment and publish the new entry.  Here are some questions you could answer (though these aren't the only ones):
+      ```
+      public_html/
+        index.html
+        blog.html
+      ```
 
-* What was challenging about the assignment, and what specific kinds of problems did you have.  How did you solve those problems?
+    Then the two files inside `public_html/` will be available at the following two URLs:
 
-* What did you learn from the assignment?  Were there any special insights you had?  What did you find that you already knew?
+      * http://web.engr.oregonstate.edu/~YOUR_ONID_ID/index.html
+      * http://web.engr.oregonstate.edu/~YOUR_ONID_ID/blog.html
 
-* What kinds of resources were helpful for completing the assignment?  Specific websites?  Lectures?  The class Campuswire forum?  The TAs?  How did you use each of these resources?
+    If, instead, your files live in a subdirectory within `public_html/` on the ENGR servers (e.g. `public_html/cs290/`) like this:
 
-* What are one or two things you had to Google to complete the assignment?
+      ```
+      public_html/
+        cs290/
+          index.html
+          blog.html
+      ```
 
-## Withheld starter code
+    then those files will be available at the following two URLs (note the extra `cs290` component in the URL corresponding to the `cs290/` directory):
 
-Because this assignment is being released before the extension deadline for the previous assignment, some of the starter code is being temporarily withheld, since it reveals the solution to one or more parts of the previous assignment.  Specifically, the file `style.css` contains only CSS for styling new features of the site that were not present in the previous assignment.  CSS relevant to the previous assignment is not included.
+      * http://web.engr.oregonstate.edu/~YOUR_ONID_ID/cs290/index.html
+      * http://web.engr.oregonstate.edu/~YOUR_ONID_ID/cs290/blog.html
 
-An updated version of this file containing complete styling will be released after the extension deadline for the previous assignment has passed.  Instructions about how to incorporate the updated file into your assignment repo will be provided at that point.  If you'd like to begin work on this assignment before the complete versions of these files are provided, feel free to use your own CSS code from the previous assignment.
+  * To be viewable on the web, the files inside your `public_html/` directory need to have the correct Unix permissions.  Specifically, all files need to have *read* permission granted for the world, and all subdirectories within `public_html/` need to have *read* and *execute* permission granted for the world.  You can read more about Unix permissions here:
+
+      https://www.tutorialspoint.com/unix/unix-file-permission.htm
+
+    Once you understand how Unix permissions work, make sure all of your files have permissions that look something like this: `-rw-r--r--` (i.e. `644` permissions), and make sure the subdirectories under `public_html/` have permissions that look something like this: `-rwxr-xr-x` (i.e. `755` permissions).
+
+  * You should *never* use a URL that begins with `file:///...` within any of your HTML files.  Such a URL describes the location of a file *on a specific computer*.  If you need to refer to a local file, use a [relative URL](https://www.w3schools.com/html/html_filepaths.asp).
+
 
 ## Submission
 
-As always, we'll be using GitHub Classroom for this assignment, and you will submit your assignment via GitHub.  Just make sure your completed files are committed and pushed by the assignment's deadline to the main branch of the GitHub repo that was created for you by GitHub Classroom.  A good way to check whether your files are safely submitted is to look at the main branch your assignment repo on the github.com website (i.e. https://github.com/osu-cs290-f24/assignment-3-YourGitHubUsername/). If your changes show up there, you can consider your files submitted.
+We'll be using GitHub Classroom for this assignment, and you will submit your assignment via GitHub.  Just make sure your completed files are committed and pushed by the assignment's deadline to the main branch of the GitHub repo that was created for you by GitHub Classroom.  A good way to check whether your files are safely submitted is to look at the main branch your assignment repo on the github.com website (i.e. https://github.com/osu-cs290-f24/assignment-1-YourGitHubUsername/). If your changes show up there, you can consider your files submitted.
 
-In addition to submitting your assignment via GitHub, you must submit the URL to your code blog entry (e.g. http://web.engr.oregonstate.edu/~YOUR_ONID_ID/cs290/blog.html) via Canvas by the due date specified above.  Make sure to submit your code blog URL on Canvas even if it hasn't changed from the one you submitted for previous assignments.
+In addition to submitting your assignment via GitHub, you must submit the URL to your code blog entry (e.g. http://web.engr.oregonstate.edu/~YOUR_ONID_ID/cs290/blog.html) via Canvas by the due date specified above.
 
 ## Grading criteria
 
-This assignment will be graded based only your `index.js` file, and any changes you make to `index.html` or `style.css` will be disregarded.
+The assignment is worth 100 total points, broken down as follows:
 
-The assignment is worth 100 points total:
+  * 30 points: Successfully logged in to the CS 290 forum on Ed Discussion and viewed at least one post.
+    * There’s no need to post anything, just log in and view at least one post.  This will be verified based on whether you are marked as “active” in Ed’s analytics at the assignment deadline.
+    * This part of the grade is all-or-nothing.  You will earn 0/20 points if you don’t log in.
 
-* New post creation: 65 points
+  * 50 points: Created `index.html` and `blog.html` with the requested structure and content and pushed them to GitHub.
+    * 10 points: `index.html` contains answers to the questions listed above
+    * 10 points: `index.html` contains an image, as described above
+    * 10 points: `blog.html` contains your first code blog entry, as described above
+    * 10 points: Both `index.html` and `blog.html` are well structured (e.g. into paragraphs and headings, into ordered and/or unordered lists, etc.)
+    * 10 points: Both `index.html` and `blog.html` contain a link to the other page
 
-  * 10 points: clicking the orange "sell something" button displays the modal and its backdrop as described above
-
-  * 10 points: clicking either the modal's close button or the modal's cancel button hides the modal and backdrop as described above
-
-  * 30 points: clicking the modal's accept button adds a new post to the end of the page as described above if the user has specified values for all required input fields
-
-  * 5 points: when creating a new post, the page is not vulnerable to a cross-site scripting attack via user-supplied values
-
-  * 5 points: clicking the modal's accept button when a value is not specified by the user for any input field results in the user being alerted and the modal remaining open, as described above
-
-  * 5 points: whenever the modal is closed (either when a post is created or not), any input values the user specified are cleared so they do not appear when the modal is opened the next time
-
-* Post filtering: 35 points
-
-  * 5 points: client-side JS correctly reads filter values entered by the user
-
-  * 20 points: user-supplied filtering criteria are correctly applied to filter the posts when the user clicks the "Update" button (i.e. the correct posts are displayed for the specified filtering criteria when the button is clicked), with filtered posts completely removed from the DOM (not just hidden)
-
-  * 10 points: re-filtering is enabled as described above, i.e. when the user changes the filter values and clicks the "Update" button, all matching posts are displayed, even ones that were removed from the DOM based on previous filtering
-
-* Extra credit:
-  * Up to 10 points for dynamically adding new cities to the dropdown list in the filters as described above
+  * 20 points: Published `index.html` and `blog.html` to your ENGR web space or to GitHub Pages.
+    * 15 points: Both pages are viewable online using an `http://...` or `https://...` URL (not a `file://...` URL!)
+    * 5 points: All files associated with both pages (e.g. HTML, images, etc.) are viewable
 
 In addition to your programming assignment grade, you will receive a pass/fail grade for your code blog entry, included in the code blog portion of your grade.
