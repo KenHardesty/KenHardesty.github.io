@@ -6,6 +6,7 @@
  * Email:
  */
 // Get references to elements
+// Get references to elements
 var sellSomethingButton = document.getElementById('sell-something-button');
 var modalBackdrop = document.getElementById('modal-backdrop');
 var sellSomethingModal = document.getElementById('sell-something-modal');
@@ -50,34 +51,22 @@ sellSomethingButton.addEventListener('click', showModal);
 modalCloseButton.addEventListener('click', closeModal);
 modalCancelButton.addEventListener('click', closeModal);
 
-// Event listener for the accept button in the modal
-modalAcceptButton.addEventListener('click', function() {
-  var postText = postTextInput.value.trim();
-  var postPhoto = postPhotoInput.value.trim();
-  var postPrice = postPriceInput.value.trim();
-  var postCity = postCityInput.value.trim();
+// Array to store all posts
+var allPosts = [];
+
+// Function to get selected condition
+function getPostCondition() {
   var postConditionRadio = document.querySelector('input[name="post-condition"]:checked');
   var postCondition = postConditionRadio ? postConditionRadio.value : '';
-
-  if (!postText || !postPhoto || !postPrice || !postCity || !postCondition) {
-    alert('Please fill in all of the fields!');
-    return;
-  }
-
-  var newPost = createPostElement(postText, postPhoto, postPrice, postCity, postCondition);
-
-  var postsSection = document.getElementById('posts');
-  postsSection.appendChild(newPost);
-
-  closeModal();
-});
+  return postCondition;
+}
 
 // Function to create a new post element
 function createPostElement(description, photoURL, price, city, condition) {
   var postElem = document.createElement('div');
   postElem.classList.add('post');
   postElem.setAttribute('data-price', price);
-  postElem.setAttribute('data-city', city);
+  postElem.setAttribute('data-city', city.toLowerCase());
   postElem.setAttribute('data-condition', condition);
 
   var postContents = document.createElement('div');
@@ -121,3 +110,119 @@ function createPostElement(description, photoURL, price, city, condition) {
 
   return postElem;
 }
+
+// Function to add a new post
+function addPost(description, photoURL, price, city, condition) {
+  var newPost = createPostElement(description, photoURL, price, city, condition);
+
+  var postsSection = document.getElementById('posts');
+  postsSection.appendChild(newPost);
+
+  // Add to allPosts array
+  allPosts.push(newPost);
+}
+
+// Event listener for the accept button in the modal
+modalAcceptButton.addEventListener('click', function() {
+  var postText = postTextInput.value.trim();
+  var postPhoto = postPhotoInput.value.trim();
+  var postPrice = postPriceInput.value.trim();
+  var postCity = postCityInput.value.trim();
+  var postCondition = getPostCondition();
+
+  if (!postText || !postPhoto || !postPrice || !postCity || !postCondition) {
+    alert('Please fill in all of the fields!');
+    return;
+  }
+
+  addPost(postText, postPhoto, postPrice, postCity, postCondition);
+
+  closeModal();
+});
+
+// Function to collect all existing posts on page load
+function collectAllPosts() {
+  var postElems = document.getElementsByClassName('post');
+  for (var i = 0; i < postElems.length; i++) {
+    allPosts.push(postElems[i]);
+  }
+}
+
+// Call collectAllPosts on page load
+collectAllPosts();
+
+// Filtering functionality
+
+var filterUpdateButton = document.getElementById('filter-update-button');
+
+filterUpdateButton.addEventListener('click', function() {
+  var filterText = document.getElementById('filter-text').value.trim().toLowerCase();
+  var filterMinPrice = document.getElementById('filter-min-price').value.trim();
+  var filterMaxPrice = document.getElementById('filter-max-price').value.trim();
+  var filterCity = document.getElementById('filter-city').value.trim().toLowerCase();
+
+  // Get selected conditions
+  var conditionInputs = document.querySelectorAll('#filter-condition input[name="filter-condition"]:checked');
+  var filterConditions = [];
+  conditionInputs.forEach(function(input) {
+    filterConditions.push(input.value);
+  });
+
+  // Clear current posts
+  var postsSection = document.getElementById('posts');
+  while (postsSection.firstChild) {
+    postsSection.removeChild(postsSection.firstChild);
+  }
+
+  // Re-add posts that match filters
+  allPosts.forEach(function(post) {
+    var postTitleElem = post.querySelector('.post-title');
+    var postTitle = postTitleElem ? postTitleElem.textContent.toLowerCase() : '';
+
+    var postPrice = parseFloat(post.getAttribute('data-price'));
+    var postCityAttr = post.getAttribute('data-city').toLowerCase();
+    var postCondition = post.getAttribute('data-condition');
+
+    var matchesText = true;
+    var matchesMinPrice = true;
+    var matchesMaxPrice = true;
+    var matchesCity = true;
+    var matchesCondition = true;
+
+    // Text filter
+    if (filterText) {
+      matchesText = postTitle.includes(filterText);
+    }
+
+    // Minimum price filter
+    if (filterMinPrice) {
+      var minPrice = parseFloat(filterMinPrice);
+      if (!isNaN(minPrice)) {
+        matchesMinPrice = postPrice >= minPrice;
+      }
+    }
+
+    // Maximum price filter
+    if (filterMaxPrice) {
+      var maxPrice = parseFloat(filterMaxPrice);
+      if (!isNaN(maxPrice)) {
+        matchesMaxPrice = postPrice <= maxPrice;
+      }
+    }
+
+    // City filter
+    if (filterCity) {
+      matchesCity = postCityAttr === filterCity;
+    }
+
+    // Condition filter
+    if (filterConditions.length > 0) {
+      matchesCondition = filterConditions.includes(postCondition);
+    }
+
+    // If matches all filters, append to postsSection
+    if (matchesText && matchesMinPrice && matchesMaxPrice && matchesCity && matchesCondition) {
+      postsSection.appendChild(post);
+    }
+  });
+});
