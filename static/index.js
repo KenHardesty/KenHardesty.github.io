@@ -29,72 +29,30 @@
  * </div>
  */
 function insertNewPost(description, photoURL, price, city, condition) {
-    /*
-     * Create the containing <div> element.
-     */
-    var postDiv = document.createElement('div')
-    postDiv.classList.add('post')
-    postDiv.setAttribute('data-price', price)
-    postDiv.setAttribute('data-city', city)
-    postDiv.setAttribute('data-condition', condition)
+    // Ensure the Handlebars template is compiled and available
+    const postTemplate = Handlebars.templates['postTemplate'];
 
-    /*
-     * Create the inner post-contents <div> and add it to the post <div>.
-     */
-    var postContentsDiv = document.createElement('div')
-    postContentsDiv.classList.add('post-contents')
-    postDiv.appendChild(postContentsDiv)
+    if (!postTemplate) {
+        console.error("Error: Post template is not available.");
+        return;
+    }
 
-    /*
-     * Create the post-image-container <div> and its <img> contents and add
-     * them into the post-contents <div>.
-     */
-    var postImageContainerDiv = document.createElement('div')
-    postImageContainerDiv.classList.add('post-image-container')
-    postContentsDiv.appendChild(postImageContainerDiv)
+    // Create a context object to pass data into the template
+    const postContext = {
+        description: description,
+        photoURL: photoURL,
+        price: price,
+        city: city,
+        condition: condition
+    };
 
-    var postImg = document.createElement('img')
-    postImg.src = photoURL
-    postImg.alt = description
-    postImageContainerDiv.appendChild(postImg)
+    // Use the Handlebars template to generate the post's HTML
+    const postHTML = postTemplate(postContext);
 
-    /*
-     * Create the post-info-container <div> and all of its contents and add
-     * them into the post-contents <div>.
-     */
-    var postInfoContainerDiv = document.createElement('div')
-    postInfoContainerDiv.classList.add('post-info-container')
-    postContentsDiv.appendChild(postInfoContainerDiv)
-
-    var postLink = document.createElement('a')
-    postLink.classList.add('post-title')
-    postLink.href = '#'
-    postLink.textContent = description
-    postInfoContainerDiv.appendChild(postLink)
-
-    var spaceText1 = document.createTextNode(' ')
-    postInfoContainerDiv.appendChild(spaceText1)
-
-    var postPriceSpan = document.createElement('span')
-    postPriceSpan.classList.add('post-price')
-    postPriceSpan.textContent = '$' + price
-    postInfoContainerDiv.appendChild(postPriceSpan)
-
-    var spaceText2 = document.createTextNode(' ')
-    postInfoContainerDiv.appendChild(spaceText2)
-
-    var postCitySpan = document.createElement('span')
-    postCitySpan.classList.add('post-city')
-    postCitySpan.textContent = '(' + city + ')'
-    postInfoContainerDiv.appendChild(postCitySpan)
-
-    /*
-     * Add the new post element into the DOM at the end of the posts <section>.
-     */
-    var postsSection = document.getElementById('posts')
-    postsSection.appendChild(postDiv)
+    // Insert the new post's HTML into the DOM
+    const postsSection = document.getElementById('posts');
+    postsSection.insertAdjacentHTML('beforeend', postHTML);
 }
-
 
 /***************************************************************************
  **
