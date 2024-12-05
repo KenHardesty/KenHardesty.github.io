@@ -1,5 +1,12 @@
-<div class="post">
-  <h2 class="post-title">{{title}}</h2>
-  <p class="post-content">{{content}}</p>
-  <p class="post-author">Posted by: {{author}}</p>
+<div class="post" data-price="{{price}}" data-city="{{city}}" data-condition="{{condition}}">
+    <div class="post-contents">
+        <div class="post-image-container">
+            <img src="{{photoURL}}" alt="{{description}}">
+        </div>
+        <div class="post-info-container">
+            <a href="#" class="post-title">{{description}}</a> 
+            <span class="post-price">${{price}}</span> 
+            <span class="post-city">({{city}})</span>
+        </div>
+    </div>
 </div>
