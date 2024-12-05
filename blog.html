@@ -69,6 +69,40 @@
     <p>Plus, I got more comfortable with JavaScript functions and scope. I had to watch out for variable declarations and make sure my functions were accessible where needed. Organizing my code into smaller, reusable functions made debugging a lot easier.</p>
 
 
+        <h1>Code Blog: Assignment 4 Reflection</h1>
+
+    <p>This assignment was all about improving how the website works behind the scenes. We had to use Handlebars templates to make the site more flexible and easier to manage. Here's how it went:</p>
+
+    <h2>Challenges and How I Solved Them</h2>
+
+    <p><strong>Making a Post Template:</strong></p>
+    <p>Creating a template for posts using Handlebars was new for me. I had to replace the old JavaScript code that built the post manually with a template. The hardest part was figuring out how to pass the right data into the template and making sure it worked in the browser. After a lot of trial and error, I finally got it by testing small pieces of code and checking the Handlebars docs for help.</p>
+
+    <p><strong>Replacing index.html:</strong></p>
+    <p>Switching from a hard-coded page to a dynamic one felt intimidating at first. I had to write templates for the posts page and set up the server to send the right data to the template. It was tricky figuring out how to load the post data and use the post template as a "partial" inside the page. Once I got that working, it felt really cool to see all the posts appear dynamically.</p>
+
+    <p><strong>Templatizing the 404 Page:</strong></p>
+    <p>Making the 404 page into a template wasn’t too hard, but it was annoying to deal with the repeated code for the header and footer. I learned how to create a "layout" template for the stuff that’s shared across all pages, which saved me a ton of time in the long run.</p>
+
+    <p><strong>Single Post Page:</strong></p>
+    <p>For the single post page, I reused the post template, which made this part easier. The hardest part here was handling cases where someone tried to load a post that doesn’t exist. I added checks to make sure the server sends back the 404 page for invalid requests, and it worked perfectly!</p>
+
+    <h2>What I Learned</h2>
+    <p>This assignment taught me:</p>
+    <ul>
+        <li>How to use Handlebars for templates and how useful partials are for reusing code.</li>
+        <li>How server-side rendering works with Express and why it’s better for dynamic sites.</li>
+        <li>How to debug JavaScript issues with templates and routes.</li>
+        <li>The importance of organizing code into reusable pieces to make changes easier later.</li>
+    </ul>
+
+    <h2>Resources I Used</h2>
+    <p>Here are some things that helped me out:</p>
+    <ul>
+        <li><a href="https://handlebarsjs.com/">Handlebars Docs</a> - super helpful for learning partials and layouts.</li>
+        <li><a href="https://expressjs.com/">Express Docs</a> - showed me how to set up dynamic routes.</li>
+
+
 
 
 </body>
